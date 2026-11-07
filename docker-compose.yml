@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: etl-marco2-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: acidentes
+      POSTGRES_USER: etl
+      POSTGRES_PASSWORD: etl_local_dev
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - etl_marco2_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U etl -d acidentes"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+volumes:
+  etl_marco2_pgdata:

@@ -1,0 +1,52 @@
+{
+  "entrada": "C:\\Users\\notvi\\Downloads\\US_Accidents_March23.csv",
+  "saida": "C:\\Users\\notvi\\Downloads\\US_Accidents_March23-tratado.csv",
+  "contagens": {
+    "lidas": 7728394,
+    "vazias": 0,
+    "aceitas": 7503011,
+    "duplicatas_identicas": 0,
+    "rejeitadas": 225383
+  },
+  "motivos_rejeicao": {
+    "Condição climática sem tradução definida: Scattered Clouds": 204829,
+    "Condição climática sem tradução definida: Light Rain Showers": 157,
+    "Condição climática sem tradução definida: Light Freezing Fog": 1001,
+    "Condição climática sem tradução definida: Rain Showers": 123,
+    "Condição climática sem tradução definida: Showers in the Vicinity": 1514,
+    "Condição climática sem tradução definida: Light Rain Shower": 259,
+    "Condição climática sem tradução definida: Light Rain with Thunder": 13597,
+    "Condição climática sem tradução definida: N/A Precipitation": 3252,
+    "Condição climática sem tradução definida: Heavy Rain Showers": 7,
+    "Condição climática sem tradução definida: Drizzle and Fog": 393,
+    "Condição climática sem tradução definida: Rain Shower": 59,
+    "Condição climática sem tradução definida: Thunder / Wintry Mix": 29,
+    "Condição climática sem tradução definida: Light Rain Shower / Windy": 16,
+    "Condição climática sem tradução definida: Sand / Dust Whirlwinds": 51,
+    "Condição climática sem tradução definida: Duststorm": 3,
+    "Condição climática sem tradução definida: Thunder and Hail": 14,
+    "Condição climática sem tradução definida: Partial Fog": 40,
+    "Condição climática sem tradução definida: Thunder / Wintry Mix / Windy": 10,
+    "Condição climática sem tradução definida: Rain and Sleet": 2,
+    "Condição climática sem tradução definida: Partial Fog / Windy": 1,
+    "Condição climática sem tradução definida: Sand / Dust Whirlwinds / Windy": 4,
+    "Condição climática sem tradução definida: Heavy Thunderstorms with Small Hail": 7,
+    "Condição climática sem tradução definida: Rain Shower / Windy": 3,
+    "Condição climática sem tradução definida: Sleet and Thunder": 4,
+    "Condição climática sem tradução definida: Heavy Sleet and Thunder": 2,
+    "Condição climática sem tradução definida: Thunder and Hail / Windy": 2,
+    "Condição climática sem tradução definida: Heavy Rain Shower / Windy": 1,
+    "Condição climática sem tradução definida: Heavy Rain Shower": 3
+  },
+  "sha256_original": "e3e9f962e3e2289db1bdce91623abbcf9ba4d7bfc1adb091c8aeee6c2639d204",
+  "original_preservado": true,
+  "status": "CSV GERADO",
+  "observacoes": [
+    "CSV não armazena tipos: importar datas como TIMESTAMP e booleanos como BOOLEAN.",
+    "Valores ausentes opcionais são campos vazios (NULL); City e clima usam Não informado.",
+    "is_capital=false para DC; AK e HI são rejeitados por estarem fora do escopo.",
+    "IDs divergentes exigem revisão; a primeira ocorrência válida é mantida.",
+    "Agrupamento climático remove intensidade e sufixos de vento; snow sempre vira Neve.",
+    "Carga de dimensões, geração de chaves e carga da fato no PostgreSQL não executadas."
+  ]
+}
