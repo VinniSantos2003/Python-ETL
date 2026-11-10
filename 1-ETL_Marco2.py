@@ -34,22 +34,26 @@ CAPITAIS = dict(item.split('=', 1) for item in (
     'SD=Pierre|TN=Nashville|TX=Austin|UT=Salt Lake City|VT=Montpelier|'
     'VA=Richmond|WA=Olympia|WV=Charleston|WI=Madison|WY=Cheyenne'
 ).split('|'))
+
 ORIGINAIS = ['ID', 'Severity', 'Start_Time', 'End_Time', 'City', 'State',
              'Visibility(mi)', 'Weather_Condition', 'Crossing', 'Traffic_Signal']
+
 TEMPORAIS = ['ano', 'mes', 'dia', 'dia_semana', 'data', 'hora']
+
 COLUNAS = ['ID', 'Severity', 'severidade_classificacao', 'is_grave',
            'qtd_acidentes', 'Start_Time', 'End_Time'] + TEMPORAIS + [
                'fim_' + c for c in TEMPORAIS] + [
                    'duracao_min', 'City', 'State', 'is_capital',
                    'Visibility(km)', 'Weather_Condition', 'Crossing', 'Traffic_Signal']
+
 DIAS = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira',
         'Sexta-feira', 'Sábado', 'Domingo']
+
 AUSENTES = {'', 'nan', 'null', 'none', 'n/a', 'na'}
 
 
 def ausente(valor):
     return valor.strip().casefold() in AUSENTES
-
 
 def normalizar_cidade(valor):
     # Apenas para o cruzamento; City é preservada na saída.
@@ -185,12 +189,16 @@ def executar(entrada, saida):
     rejeicoes = saida.with_suffix('.rejeicoes.csv')
     relatorio = saida.with_suffix('.relatorio.json')
     destinos = [saida, rejeicoes, relatorio]
+    # Verifica se se o caminho da entrada e saida são iguals 
     if entrada in destinos or len(set(destinos)) != 3:
         raise ValueError('Entrada e saídas devem ser arquivos diferentes')
     # Não sobrescreve nenhum resultado anterior por acidente.
+    
     for caminho in destinos:
+    #Evita sobre escrita
         if caminho.exists():
             raise FileExistsError('Arquivo já existe: ' + str(caminho))
+            
     hash_antes = sha256(entrada)
     contagem = Counter(lidas=0, vazias=0, aceitas=0, duplicatas_identicas=0, rejeitadas=0)
     motivos = Counter()
